@@ -1,5 +1,3 @@
 discord
 aiohttp
-json
-re
 datetime
