@@ -24,4 +24,4 @@ client.run("asdfhjil;kbhzvlfuioajsv") <- Not a real token so don't even try lol
 # Step two / Part two - Get a webhook URL
 
 In your server settings, go to create webhook URL
-!(Gif shown below:)[https://gyazo.com/b01ace5fd51e9643e5176f8f1ddd4163]
+![Gif shown below](https://gyazo.com/b01ace5fd51e9643e5176f8f1ddd4163)
