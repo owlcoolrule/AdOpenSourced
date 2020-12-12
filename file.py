@@ -10,8 +10,8 @@ from discord import Embed
 import json
 from datetime import datetime
 
-
-client = commands.Bot(command_prefix = "!" case_insensitive=True,intents=default=True)
+intents = discord.Intents(default=True)
+client = commands.Bot(command_prefix = "!" case_insensitive=True,intents=intents)
 
 def global_check(ctx):
     def check(m):
