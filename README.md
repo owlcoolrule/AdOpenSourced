@@ -39,3 +39,13 @@ Now, just go to "Deploy" tab, and choose the GitHub option. Sign in with GitHub,
 # Step four - Inviting
 
 So you've created your bot, but you want to invite it to your server. It's not hard at all! Head on over to https://discord.com/developers, and select the application you made. The choose "OAuth2". You'll see a long list of things, you can ignore them. Find "Bot" on that long list. That should open another checkbox panel, though the bot doesn't really need any perms, you might as well just give it "Administrator" as I might be wrong 🤣. Then go back up to the first checkbox panel. Click on "Copy", open that link in a new tab. Congrats! You just created an ad bot. It's prefix is currently ``!``. Change the ``!`` on line 14 with your prefix, not removing anything else. If I wanted my prefix to be ``?`` instead, it would look like this: ``client = commands.Bot(command_prefix = "?",case_insensitive=True,intents=intents)``.
+
+# FAQs:
+
+**Q -** How would I change the cooldown?
+**A -** Head on over to line 22, and note this line:
+``@commands.cooldown(1, 14400, commands.BucketType.user)``
+**DON'T change anything except the ``14400`` part.** The 14400 is how many *seconds* the cooldown is. 14400 seconds is equivalent to four hours. Change that to however many seconds you want your cooldown to be. You might want to scroll down to line 69 and change the words so it matches your new cooldown.
+
+**Q -** How do I change the channel it sends a message to?
+**A -** It's not in the code lol. Head on down to the webhooks section of your server settings and change the channel to your new desired channel. No need to edit the URL, the current one has already updated with the new channel data.
