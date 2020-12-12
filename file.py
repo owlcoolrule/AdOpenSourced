@@ -8,15 +8,15 @@ from discord.ext.commands import MissingPermissions
 from discord.ext.commands import has_permissions
 from discord import Embed
 import json
+import aiohttp
 from datetime import datetime
+intents = discord.Intents(messages=True,guilds=True)
+client = commands.Bot(command_prefix = "!",case_insensitive=True,intents=intents)
 
-intents = discord.Intents(default=True)
-client = commands.Bot(command_prefix = "!" case_insensitive=True,intents=intents)
-
-def global_check(ctx):
-    def check(m):
-        return m.author == ctx.author and m.channel == ctx.channel
-    return check
+def global_dm_check(author, guild):
+    def inner_check(message):
+        return message.author == author and message.guild == None
+    return inner_check
 
 @client.command(help = "Starts the advertising prompt in your DMs")
 @commands.cooldown(1, 14400, commands.BucketType.user)
@@ -56,7 +56,7 @@ async def advertise(ctx):
                 await webhook.send(embed=buildembed, username=ctx.author.name,avatar_url=ctx.author.avatar_url)
             done = Embed(title = "All sent!",description = "Thanks for your patience throughout this process.",color=discord.Color.green())
             msgyes = await author.send(embed = done)
-        except:
+        except discord.Forbidden:
             error = Embed(title = "You sent a file, not an image URL.",description = "Please get a CDN link to a featured image. You're going to have to wait four hours before you try again.",color = discord.Color.red())
             msgyes = await author.send(embed = error)
     except discord.Forbidden:
@@ -69,5 +69,7 @@ async def advertise_error(ctx,error):
         cooldown = Embed(title = "Slow down there friend",description = "Pilot, slow down there. You're still on cooldown! Please only use this command once every 4 hours.",color=discord.Color.orange())
         cooldown.set_thumbnail(url = "https://media.giphy.com/media/dJezVlwfVulTykjRQj/giphy.gif")
         msgyes = await ctx.send(embed = cooldown)
+    else:
+        print(f"Something went wrong there, here's an error: {error}")
         
 client.run("Token here")
