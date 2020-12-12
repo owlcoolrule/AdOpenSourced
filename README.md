@@ -5,7 +5,7 @@ Tired of your members advertising in an inproper format? With this AdBot, you ca
 
 # Setup
 
-We don't offer support for this setup, so please don't open a ticket requesting for it. The setup isn't too hard to follow though.
+If something does go wrong during this setup, please join the Aerolinia support server, which you can find at https://aerolinia.xyz. Though Aerolinia staff may not be able to answer your question, they'll try their best. **Please** read these before creating a ticket.
 
 # Step one - Clone this code
 
@@ -36,4 +36,6 @@ Hosting is easy with [Heroku](https://heroku.com). It shouldn't take too long at
 
 Now, just go to "Deploy" tab, and choose the GitHub option. Sign in with GitHub, and choose the **rep you just forked.** Then click **Deploy**.
 
-Head on over to the "resources" tab and click edit. Then check all the boxes. Your bot should be online within a minute or two.
+# Step four / Inviting
+
+So you've created your bot, but you want to invite it to your server. It's not hard at all! Head on over to https://discord.com/developers, and select the application you made. The choose "OAuth2". You'll see a long list of things, you can ignore them. Find "Bot" on that long list. That should open another checkbox panel, though the bot doesn't really need any perms, you might as well just give it "Administrator" as I might be wrong 🤣. Then go back up to the first checkbox panel. Click on "Copy", open that link in a new tab. Congrats! You just created an ad bot.
